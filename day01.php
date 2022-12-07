@@ -11,10 +11,22 @@
         $sum = $sum + (int) $line;
 
         if (empty(trim($line)) === true) {
-            echo '<p>Elf '.$count.' carries '.$sum.' calories</p>';
+            $array[] = $sum;
+
+            arsort($array);
+            $top = array_chunk($array, 3, true)[0];
+            $newTop = implode(' ', $top);
+
+            // for ($i = 0; $i < count($array); $i++) {
+            //     if ($array[$i] > $one) {
+            //         $one = $array[$i];
+            //     }
+            // }
 
             $sum = 0;
             $count++;
         };
     };
+
+    echo '<p>Calorie count top 3: '.$newTop;
 ?>
