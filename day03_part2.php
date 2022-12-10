@@ -28,7 +28,6 @@
         $same = array_intersect($letters_one, $letters_two, $letters_three); // find letter that's in both arrays
         $match = array_intersect($alphabet, $same); // match value with alphabet
         $total = $total + key($match); // calculate total
-        echo $part_three.' ';
     };
 
     // OUTPUT
