@@ -9,7 +9,7 @@
     // CALCULATING
     foreach ($data as $line) {
         do {
-            $fourteen = substr($line, $offset, 14); // take four letters
+            $fourteen = substr($line, $offset, 14); // take 14 letters
             $letters = str_split($fourteen, 1); // split each letter into an array
             $compare = array_unique($letters); // compare all letters
             if (count($compare) == 14) {
