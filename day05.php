@@ -32,13 +32,10 @@
         $from = (int) $moves[3];
         $to = (int) $moves[5];
 
-        do {
-            $length = count($crates[$from]); // count length of the "from" array
-            $take = array_slice($crates[$from], -1, 1); // takes the last crate in the "from" line
-            $crates[$from] = array_slice($crates[$from], 0, ($length - 1)); // deletes the crates from the line it was in
-            $crates[$to] = array_merge($crates[$to], $take); // merge the arrays
-            $amount--;
-        } while ($amount > 0);
+        $length = count($crates[$from]); // count length of the "from" array
+        $take = array_slice($crates[$from], -$amount, $amount); // takes the right amount of crates from the "from" line
+        $crates[$from] = array_slice($crates[$from], 0, ($length - $amount)); // deletes the crates from the line they were in
+        $crates[$to] = array_merge($crates[$to], $take); // merge the arrays
     };
 
     // OUTPUT
